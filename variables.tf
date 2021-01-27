@@ -129,3 +129,14 @@ variable "acd_identifier" {
   description = "A unique identifier used by the Ocean AKS Connector when importing an AKS cluster"
   default     = null
 }
+variable "wait_for_rollout" {
+  type        = bool
+  description = "Wait for the deployment rollout"
+  default     = true
+}
+
+variable "image_pull_secrets" {
+  type        = list(string)
+  description = "List of references to secrets in the same namespace to use for pulling the image"
+  default     = []
+}
