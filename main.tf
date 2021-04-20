@@ -337,8 +337,15 @@ resource "kubernetes_deployment" "this" {
           image_pull_policy = var.image_pull_policy
 
           resources {
-            limits   = var.resources_limits
-            requests = var.resources_requests
+            limits {
+              cpu = "0.5"
+              memory = "512Mi"
+            }
+
+            requests {
+              cpu = "0.5"
+              memory = "512Mi"
+            }
           }
 
           liveness_probe {
@@ -565,8 +572,15 @@ resource "kubernetes_job" "this" {
           args              = ["connect-ocean"]
 
           resources {
-            limits   = var.resources_limits
-            requests = var.resources_requests
+            limits {
+              cpu = "0.5"
+              memory = "512Mi"
+            }
+
+            requests {
+              cpu = "0.5"
+              memory = "512Mi"
+            }
           }
 
           env {
