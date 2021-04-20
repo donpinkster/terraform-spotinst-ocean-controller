@@ -252,7 +252,6 @@ resource "kubernetes_cluster_role_binding" "this" {
 
 resource "kubernetes_deployment" "this" {
   count            = var.create_controller ? 1 : 0
-  depends_on       = [null_resource.module_depends_on]
   wait_for_rollout = var.wait_for_rollout
 
   metadata {
