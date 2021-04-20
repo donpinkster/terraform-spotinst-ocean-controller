@@ -61,30 +61,23 @@ variable "disable_auto_update" {
   default     = false
 }
 
-variable "image_pull_secrets" {
-  type        = list(string)
-  description = "List of references to secrets in the same namespace to use for pulling the image"
-  default     = []
-}
-
 variable "resources_limits" {
   type        = map(any)
   description = "Definition of the maximum amount of compute resources allowed"
-  default     = null
-  //  default = {
-  //    cpu    = "0.5"
-  //    memory = "512Mi"
-  //  }
+  default = {
+    cpu    = "0.5"
+    memory = "512Mi"
+  }
 }
 
 variable "resources_requests" {
   type        = map(any)
   description = "Definition of the minimum amount of compute resources required"
-  default     = null
-  //  default = {
-  //    cpu    = "0.5"
-  //    memory = "512Mi"
-  //  }
+//  default     = null
+  default = {
+    cpu    = "0.5"
+    memory = "512Mi"
+  }
 }
 
 variable "tolerations" {
